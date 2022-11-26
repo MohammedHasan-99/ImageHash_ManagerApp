@@ -56,30 +56,48 @@
                 </h2>
             </div>
             <div class="single-box mt-5">
-                <h3>Number of instances: <span>{{size}}</span></h3>
+               <div class="nav nav-tabs Subscription-options pt-4" id="nav-tab" role="tablist" style="border-bottom:none">
+        <a class="active Free me-3" id="nav-free-tab" data-bs-toggle="tab" data-bs-target="#nav-free" type="button"
+          role="tab" aria-controls="nav-free" aria-selected="true">manual</a>
+        <a class="Paid" id="nav-paid-tab" data-bs-toggle="tab" data-bs-target="#nav-paid" type="button" role="tab"
+          aria-controls="nav-paid" aria-selected="false">auto</a>
+      </div>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-free" role="tabpanel" aria-labelledby="nav-free-tab">
+
+          <h3>Number of instances: <span>{{size}}</span></h3>
                 
-                <form action="/increase" method="post">
+          <form action="/increase" method="post">
 
 
-                    <button type="submit" class="btn btn-success w-auto">Increment instances</button>
-                    {%if message1%} 
-                    <div class="result mt-5">
-                        <h3>{{message1}}</h3>
-                    </div>
-                    {%endif%}
-                </form>
-                
-                <form action="/decrease" method="post">
+              <button type="submit" class="btn btn-success w-auto">Increment instances</button>
+              {%if message1%} 
+              <div class="result mt-5">
+                  <h3>{{message1}}</h3>
+              </div>
+              {%endif%}
+          </form>
+          
+          <form action="/decrease" method="post">
 
 
-                    <button type="submit" class="btn btn-success w-auto">Decrement instances</button>
-                    {%if message2%} 
-                    <div class="result mt-5">
-                        <h3>{{message2}}</h3>
-                    </div>
-                    {%endif%}
-                </form>
-                    
+              <button type="submit" class="btn btn-success w-auto">Decrement instances</button>
+              {%if message2%} 
+              <div class="result mt-5">
+                  <h3>{{message2}}</h3>
+              </div>
+              {%endif%}
+          </form>
+              
+        </div>
+        <div class="tab-pane fade" id="nav-paid" role="tabpanel" aria-labelledby="nav-paid-tab">
+          <input type="text" placeholder="min miss rate">
+          <input type="text" placeholder="max miss rate">
+          <button>Auto Scale</button>
+
+
+        </div>
+      </div>
                    
           
 
